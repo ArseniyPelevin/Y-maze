@@ -4,8 +4,8 @@
 
 This Arduino project automates rat behavioral tests in Y-maze. It lets experimenter enter different programs 
 with 4x4 keypad and LCD 128x64 display. Programs are saved in memory and can be selected and used later.\
-Arduino plate controls over LEDs lighting and door opening, it also sends signals to CED event channel, 
-which lets matching events in the maze with neural activity. Maze has middle LEDs, which draw animal's 
+Arduino plate controls over LEDs lighting and door opening, it also sends signals to data acquisition interface 
+event channel, which lets matching events in the maze with neural activity. Maze has middle LEDs, which draw animal's 
 attention, and two LEDs on each side, which clue animal on which way to run.\
 Middle LED lights on and off, then side LED lights on and off, then door opens (or stay closed, if thus 
 programmed). The times of lighting and delays between signals are determined by current program.
@@ -13,7 +13,7 @@ programmed). The times of lighting and delays between signals are determined by 
 # Hardware
 
 Arduino Mega, LCD 128x64, Keypad 4x4, LED (x5), servo motor, perforated circuit board, 
-12V adapter, 12V to 3.3V/5V buck step down power supply module, maze box, (CED)
+12V adapter, 12V to 3.3V/5V buck step down power supply module, maze box, (data acquisition interface)
 
 A total of 5 LEDs are used: 3 for middle signal and one for each side. It is important that LEDs are not
 too bright, as it can repel the rat. In our experiments we observed steadily wrong choices, as rats, 
@@ -173,6 +173,11 @@ __B__ returns to the second screen of preparation and lets change the side.\
 __L__ shows that left side was chosen. It's the time to place food. \
 __#__ starts program execution. After that it won't be possible to interrupt it.\
 During experiment executed parts of program will be underlined.
+
+# Signal to event channel
+
+When middle and side LEDs light, and when door opens, a 5 ms signal is sent to event channel of data acquisition interface, 
+which allows to match events in the maze with animal's neural activity. 
 
 # Bugs
 
