@@ -73,7 +73,7 @@ void setup() {
   pinMode(mid3, OUTPUT); 
   pinMode(right, OUTPUT); 
   pinMode(door, OUTPUT);  
-  pinMode(ced, OUTPUT);
+  pinMode(evChan, OUTPUT);
 
   randomSeed(analogRead(0));
   
@@ -487,7 +487,7 @@ void play(){ // проведение эксперимента
       break;
     case 2:
       if (prg[n].delays[1] != 0){    // if time of middle LED is 0 it won't go on
-        CED();                       // signal to CED event channel
+        EventChannel();                       // signal to event channel
         digitalWrite(mid1, HIGH);    // middle LED on
         digitalWrite(mid2, HIGH);
         digitalWrite(mid3, HIGH);
@@ -507,7 +507,7 @@ void play(){ // проведение эксперимента
       done += u8g.getStrWidth("S") + u8g.getStrWidth(timeStr);
       break;
     case 4:
-      CED();                          // signal to CED event channel 
+      EventChannel();                          // signal to event channel 
       digitalWrite(side, HIGH);       // side LED on
       digitalWrite(ced, HIGH);
       delay(prg[n].delays[3]*prec);   // time of side LED
@@ -521,7 +521,7 @@ void play(){ // проведение эксперимента
       break;
     case 6:
       if (prg[n].door_open) {
-        CED();                        // send signal to CED event channel
+        EventChannel();                        // send signal to event channel
         servo.write(30);              // open the door (if needed)
       } 
       stp = 13;                       // return to preparation step
@@ -531,8 +531,8 @@ void play(){ // проведение эксперимента
   stpPlay++;                          // next step of experiment execution
 }
 
-void CED(){                           // signal to CED event channel
-  digitalWrite(ced, HIGH);
+void EventChannel(){                           // signal to event channel
+  digitalWrite(evChan, HIGH);
   delay(5);
-  digitalWrite(ced, LOW);
+  digitalWrite(evChan, LOW);
 }
