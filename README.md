@@ -195,3 +195,7 @@ There is one known bug I wasn't yet able to fix. If user goes to *Select old pro
 returns to the *First screen* and goes to *New program*, pressing any digit will make one of the old
 programs appear. It's usually not critical, but if it happens user should reset the maze and go straight
 to *New program*.
+
+## Credits
+
+This software was developed as part of research work in the Laboratory of Neurobiology and Molecular Pharmacology of the Institute of Translational Biomedicine of St Petersburg University under the scientific supervision of Dr. Anna B. Volnova <a href="https://orcid.org/0000-0003-0724-887X"><img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a>
